@@ -26,7 +26,6 @@ class MenuListFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val vpMain = binding.vpMainMenuList
         vpMain.adapter = ViewPagerAdapter(this).apply {
-            // addFragment(AllMenuFragment())
             addFragment(BlankFragment())
             addFragment(FastFoodFragment())
             addFragment(DessertsFragment())

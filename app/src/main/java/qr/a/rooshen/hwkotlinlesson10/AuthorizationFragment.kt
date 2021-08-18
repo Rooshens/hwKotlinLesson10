@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import qr.a.rooshen.hwkotlinlesson10.SharePrefHelper.Companion.SP_WELCOME_BUTTON_ClIKED
+import qr.a.rooshen.hwkotlinlesson10.database.User
 import qr.a.rooshen.hwkotlinlesson10.databinding.FragmentAuthorizationBinding
 
 
@@ -31,6 +32,10 @@ class AuthorizationFragment : Fragment() {
             }
         }
         binding.buttonBegin.setOnClickListener {
+            if (BaseApplication.instance?.getUserDao()?.getUserById(binding.etPersonName.text.toString()) == false ) {
+                BaseApplication.instance?.getUserDao()
+                    ?.insert(User(name = binding.etPersonName.text.toString()))
+            }
             (activity as? MainNavigation)?.openMenu()
         }
     }

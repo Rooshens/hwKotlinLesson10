@@ -2,6 +2,7 @@ package qr.a.rooshen.hwkotlinlesson10
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import qr.a.rooshen.hwkotlinlesson10.database.User
 
 
 class MainActivity : AppCompatActivity(), MainNavigation {
@@ -10,7 +11,8 @@ class MainActivity : AppCompatActivity(), MainNavigation {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        SharePrefHelper.initPrefences(this)
+
+
 
         if (SharePrefHelper.instance.getBoolean("notShowItAnymore", false)) {
             openAuthorizationFragmentNotShowItAnymore()
